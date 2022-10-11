@@ -1,0 +1,54 @@
+<constraint-mappings
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/mapping "
+        xmlns="http://jboss.org/xml/ns/javax/validation/mapping" version="1.1">
+
+    <default-package>org.example.component</default-package>
+    <bean class="Player" ignore-annotations="true">
+        <field name="name">
+            <constraint annotation="javax.validation.constraints.NotNull">
+                <message>Name can't be null</message>
+            </constraint>
+            <constraint annotation="javax.validation.constraints.Size">
+                <element name="value">2</element>
+
+                <element name="message">enter more characters </element>
+
+            </constraint>
+        </field>
+        <field name="Country">
+            <constraint annotation="javax.validation.constraints.NotNull">
+                <message>Country can't be null</message>
+            </constraint>
+        </field>
+        <field name="designation">
+            <constraint annotation="javax.validation.constraints.Min">
+                <element name="value">1</element>
+
+                <element name="message">value greater than equal to 1 </element>
+            </constraint>
+            <constraint annotation="javax.validation.constraints.Max">
+                <element name="value">5</element>
+                <element name="message">value less than equal to 5 </element>
+            </constraint>
+        </field>
+        <field name="dob">
+            <constraint annotation="javax.validation.constraints.Past">
+                <element name="message">enter past value</element>
+            </constraint>
+            <constraint annotation="javax.validation.constraints.DateTimeFormat">
+                <element name="pattern">dd-MM-yyyy</element>
+                <element name="message">enter in dd-mm-yyyy format </element>
+            </constraint>
+        </field>
+        <field name="email">
+            <constraint annotation="javax.validation.constraints.Pattern">
+                <element name="regexp">^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$</element>
+                <element name="message">enter carefully</element>
+            </constraint>
+
+        </field>
+
+    </bean>
+
+</constraint-mappings>
